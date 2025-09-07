@@ -1,6 +1,6 @@
 # 💰 Sistema de Gestão Financeira Pessoal
 
-![Project Banner](https://via.placeholder.com/1200x300.png?text=Gestão+Financeira+Pessoal)
+<img src="./BeauMoney.png" width="600px" >
 
 
 ## 1. Descrição do Projeto
