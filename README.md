@@ -29,8 +29,9 @@ Acesse os protótipos interativos para visualizar o fluxo completo do sistema:
 
 ### Backend
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)  
-![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)  
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white) 
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+
 
 ### Extras
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
@@ -38,22 +39,4 @@ Acesse os protótipos interativos para visualizar o fluxo completo do sistema:
 ![ExcelJS](https://img.shields.io/badge/ExcelJS-207245?style=for-the-badge&logo=excel&logoColor=white)  
 ![PDFKit](https://img.shields.io/badge/PDFKit-FF6600?style=for-the-badge&logo=adobe&logoColor=white)  
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-
-## 4. Estrutura do Projeto
-```text
-src/
-│
-├─ backend/          # API, banco de dados, autenticação
-│   ├─ controllers/
-│   ├─ models/
-│   └─ routes/
-│
-├─ frontend/         # Interface do usuário
-│   ├─ components/
-│   ├─ pages/
-│   └─ services/
-│
-├─ designs/          # Arquivos do Figma e assets gráficos
-└─ README.md
-
 
