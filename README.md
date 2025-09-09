@@ -14,11 +14,10 @@ O sistema tem como objetivo fornecer uma **plataforma completa de gestão financ
 ## 2. Protótipos no Figma
 Acesse os protótipos interativos para visualizar o fluxo completo do sistema:
 
-- [🖥 Tela de Login e Cadastro](https://www.figma.com/design/rysLklzzhbRfqDpdR32Ook/BeauMoney?node-id=5-118&t=ZTjS6GvGGGzxTfYL-0)  
-- [📊 Dashboard e Relatórios](https://www.figma.com/design/rysLklzzhbRfqDpdR32Ook/BeauMoney?node-id=5-118&t=ZTjS6GvGGGzxTfYL-0)  
-- [💵 Transações (Receitas e Despesas)](https://www.figma.com/design/rysLklzzhbRfqDpdR32Ook/BeauMoney?node-id=5-119&t=ZTjS6GvGGGzxTfYL-0)  
-- [🏦 Cofres Virtuais](https://www.figma.com/design/rysLklzzhbRfqDpdR32Ook/BeauMoney?node-id=5-176&t=ZTjS6GvGGGzxTfYL-0)  
-- [📄 Exportação de Relatórios](https://www.figma.com/design/rysLklzzhbRfqDpdR32Ook/BeauMoney?node-id=30-652&t=ZTjS6GvGGGzxTfYL-0)  
+
+<a href="https://www.figma.com/design/rysLklzzhbRfqDpdR32Ook/BeauMoney?node-id=5-118&t=ZTjS6GvGGGzxTfYL-0" target="_blank">
+  💵 Dashboard
+</a>
 
 ## 3. Tecnologias Utilizadas
 
