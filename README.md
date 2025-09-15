@@ -1,5 +1,5 @@
 
-<img src="./BeauMoney.png" width="600px" >
+<img src="./SowingFuture.png" width="600px" >
 
 ## 1. Descrição do Projeto
 O sistema tem como objetivo fornecer uma **plataforma completa de gestão financeira pessoal**, permitindo que os usuários:
