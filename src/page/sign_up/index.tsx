@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { signup } from '../../api/auth';
-import FormSignin, { type UserSignin } from '../../components/FormSignin'
-import {Container, SignUpContainer, SignUpTitle } from './SignUpStyle'
+import FormSignin, { type UserSignin } from '../../components/formAuth/signin';
+import {Container, SignUpContainer, SignUpTitle } from './style'
 const SignUpFailed = ({disabled}:{disabled:boolean})=>{
   return (
       <h1 style={{

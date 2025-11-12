@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react'
 import { GlobalStyle } from './globalStyle'
 import { dark,light} from './theme'
 
-import Login from './page/login/Login.tsx'
-import SignUp from './page/sign_up/SignUp.tsx'
+import Login from './page/login/index.tsx'
+import SignUp from './page/sign_up/index.tsx'
 
 
 import { styled } from "styled-components";

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import {InputGroup, Input, Button, Label, Link, ErrorMessage } from './FormStyles';
-import { validateEmail, validatePassword } from '../api/validateLogin';
-import { AboutPassword } from './aboutPassword';
+import {InputGroup, Input, Button, Label, Link, ErrorMessage } from './styles';
+import { validateEmail, validatePassword } from '../../api/validateLogin';
+import { AboutPassword } from '../aboutPassword';
 
 
 export interface UserLogin {

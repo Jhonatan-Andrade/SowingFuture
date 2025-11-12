@@ -22,7 +22,7 @@ export const dark:ThemeType = {
     textSecondary:" #ffffff",
     textMenu:" #ffffff",
     border: " #ffffff",
-    transparent:"rgba(255, 255, 255, 0.5)",
+    transparent:"rgba(255, 255, 255, 0.7)",
     error:"rgba(255, 38, 0, 0.34)",    
 }
 export const light:ThemeType = {
@@ -34,8 +34,12 @@ export const light:ThemeType = {
     textSecondary:"rgba(255, 255, 255, 1)",
     textMenu:"rgb(255, 255, 255)",
     border: "rgb(16, 26, 82)",
-    transparent:"rgba(0, 0, 0, 0.59)",
+    transparent:"rgba(0, 0, 0, 0.7)",
     error:"rgba(255, 38, 0, 0.34)",   
+}
+export const fonts = {
+    primary: "'Poppins', sans-serif",
+    secondary: "'Roboto', sans-serif",
 }
 //crie uma variavel de cor gradiente que vai do azul claro ao azul escuro
 export const redGradient = "linear-gradient(to right, #EF0000, #7C0101)";

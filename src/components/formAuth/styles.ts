@@ -1,6 +1,6 @@
 
 import styled from "styled-components";
-import { blueGradient ,blue } from "../theme";
+import { blueGradient ,blue } from "../../theme";
 
 export const FormLogin = styled.div`
     display: flex;
@@ -38,7 +38,7 @@ export const ErrorMessage = styled.div`
     margin-top: 0.3rem;
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
 `
 export const Button = styled.button`
     display: flex;

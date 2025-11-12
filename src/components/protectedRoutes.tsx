@@ -44,5 +44,5 @@ const MainContainer = styled.div`
 `
 const Container = styled.div`
   width:calc(100% - 320px);
-  padding: 80px 40px;
+  padding: 40px;
 `

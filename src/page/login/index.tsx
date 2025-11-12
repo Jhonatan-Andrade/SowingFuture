@@ -1,8 +1,8 @@
 
 import { useState } from 'react';
 import { login } from '../../api/auth';
-import FormLogin,{ type UserLogin } from '../../components/FormLogin';
-import {Container,LoginContainer,LoginTitle} from './LoginStyles';
+import FormLogin,{ type UserLogin } from '../../components/formAuth/login';
+import {Container,LoginContainer,LoginTitle} from './style';
 import { red, redGradient } from '../../theme';
 
 const LoginFailed = ({disabled}:{disabled:boolean})=>{

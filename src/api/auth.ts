@@ -1,20 +1,12 @@
 
+import api from "./config";
 
-// src/services/api.js
-import axios from "axios";
 
-const api = axios.create({
-  baseURL: "http://localhost:3333", // ajuste para a sua API real
-});
-
-// Interceptor de requisições: adiciona o token JWT ao header Authorization, se existir
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+interface User{
+  id: string;
+  name: string;
+  email: string;
+}
 
 export const login = async (email: string, password: string): Promise<{token: string}> => {
   try {
@@ -40,12 +32,6 @@ export const signup = async (name: string, email: string, password: string): Pro
     throw new Error("Signup failed");
   }
 };
-
-interface User{
-  id: string;
-  name: string;
-  email: string;
-}
 export const fetchDashboard = async (): Promise<User | null>=> {
   try {
     const response = await api.get<User>('/user/profile');
