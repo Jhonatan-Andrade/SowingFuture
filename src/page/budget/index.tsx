@@ -4,6 +4,7 @@ import AddButton from '../../components/addButton';
 import { AccountingRecordItemLi, AccountingRecordItemLiSpan, BoxList, BoxListTitle, Container, Header, HeaderForm, HeaderTitle, Input, InputMoney, List, Main, Select, SubTitle, Title } from './style';
 import { createAccountingRecord, deleteAccountingRecord, fetchAccountingRecords, type AccountingRecord, type AccountingRecordData } from '../../api/accountingRecord';
 import EmptyListMessage from '../../components/emptyListMessage';
+import { SelectButton } from '../../components/selectButton';
 
 
 function AccountingRecordItem({data,onDeleteAccountingRecord}: {data: AccountingRecord, onDeleteAccountingRecord: () => void}) {
@@ -75,7 +76,7 @@ export default function AccountingRecord() {
     try {
       const response = await fetchAccountingRecords();
 
-      const ganhos = response.filter(item => item.type === "ganho");
+      const ganhos = response.filter(item => item.type === "receita");
       const despesas = response.filter(item => item.type === "despesa");
 
       setAccountingRecordsEarn(ganhos);
@@ -117,15 +118,14 @@ export default function AccountingRecord() {
             value={value} 
             onChange={(e)=>setMask(e.target.value)} 
           />
-          <Select 
-            style={{borderColor:`${typeError ? 'red' : 'transparent'}`}} 
-            value={type}  
-            onChange={(e)=>setType(e.target.value)}
-          >
-            <option value="">Tipo</option>
-            <option value="ganho">Receita</option>
-            <option value="despesa">Despesa</option>
-          </Select>
+          <SelectButton 
+            placeholde='Filtrar por Tipo'
+            listOption={["receita","despesa"]} 
+            selectData={type} 
+            setSelectData={setType} 
+            selectError={typeError}
+            width='100%'
+          />
           <AddButton onClick={() => onCreateAccountingRecord()} />
         </HeaderForm>
         {accountingRecordsEarn.length !== 0 || accountingRecordsExpense.length !== 0 ?      

@@ -1,31 +1,61 @@
-import type { ComponentProps } from "react"
-import { Select } from "./style";
+import { useState } from "react"
+import { OptionLI, Select, SelectButtonInput, SelectOption } from "./style";
 
 
-interface SelectButtonProps extends ComponentProps<'select'> {
-    typeError: boolean;
-    type: string;
-    setType: (value: string) => void;
-    data: string[]; 
-    width?:number
-    height?:number
+
+function SelectOptionBox({data,width,setOption}:{
+        data: string[],width?:string,setOption:(opt:string)=>any
+    }) {
+    return(
+        <SelectOption >
+            {data.map((i)=>{
+                const opt = i.toLowerCase()
+                return(
+                    <OptionLI 
+                        key={opt} 
+                        onClick={()=>{
+                            setOption(opt);
+                        }}>{opt}
+                    </OptionLI>
+                )
+            })}
+        </SelectOption>
+    )
+}
+interface SelectButtonProps {
+    placeholde:string
+    selectError?: boolean;
+    selectData: string;
+    setSelectData: (value: string) => void;
+    listOption: string[]; 
+    width?:string
+    height?:string
 
 }
-export  function SelectButton({typeError,type,setType,data,width,height}:SelectButtonProps){
+export  function SelectButton({placeholde,selectError,selectData,setSelectData,listOption,width,height}:SelectButtonProps){
+    const [optionOpenValue,setOptionOpen]=useState(false)
+    function onSelectOption(opt:string) {
+        setSelectData(opt);
+        setOptionOpen(false);
+    }
     return(
-        <Select 
-          style={{
-            borderColor:`${typeError ? 'red' : 'transparent'}`,
-            width:`${width ? width : 10}rem`,
-            height:`${height ? height : 2.5}rem`,
-        }} 
-          value={type}  
-          onChange={(e)=>setType(e.target.value)}
+        <SelectButtonInput
+            style={{
+                borderColor:`${selectError && 'red'}`,
+                width:`${width ? width : "10rem"}`,
+                height:`${height ? height : "2.5rem"}`,   
+            }}
         >
-            <option value="">Tipo</option>
-            {data.map((item, index) => (
-                <option key={index} value={item}>{item.charAt(0).toUpperCase() + item.slice(1)}</option>
-            ))}
-        </Select>
+            <Select 
+                onClick={()=>setOptionOpen(true)}
+            >
+                {selectData !== ""?selectData:listOption[0]}
+            </Select>
+            {optionOpenValue&&<SelectOptionBox 
+                width={width}
+                data={listOption} 
+                setOption={(opt)=>{onSelectOption(opt)}}
+            />}
+        </SelectButtonInput>
     )
 }

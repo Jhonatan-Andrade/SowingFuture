@@ -76,7 +76,6 @@ export const ButtonCreateTransaction = styled.button`
   color:white;
   position:absolute;
   right:0;
-  right:0;
 `
 export const Container = styled.ul`
   width:100%;

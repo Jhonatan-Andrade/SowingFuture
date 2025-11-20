@@ -5,6 +5,7 @@ import { createTransaction, deleteTransaction, fetchTransactions, type Transacti
 import FormTransaction from '../../components/formTransaction';
 import AddButton from '../../components/addButton';
 import EmptyListMessage from '../../components/emptyListMessage';
+import { SelectButton } from '../../components/selectButton';
 
 
 
@@ -32,6 +33,8 @@ export default function Transaction() {
    async function onCreateTransaction(data: TransactionData) {
     try {
       const response = await createTransaction(data);
+      console.log(response);
+      
       setTransactions(prev => [...prev, response]);
     } catch (error) {
       console.log(error);
@@ -65,16 +68,20 @@ export default function Transaction() {
           <SubTitle>Gerencie suas receitas e despesas</SubTitle>
         </HeaderTitle>
         <HeaderFilter>
-          <Select onChange={(e)=>setFilteredTransactionsType(e.target.value)} disabled={true}>
-            <option value="">Filtrar por Tipo</option>
-            <option value="ganho">Receita</option>
-            <option value="despesa">Despesa</option>
-          </Select>
-          <Select onChange={(e)=>setFilteredTransactionsCategory(e.target.value)} disabled={true}>
-            <option value="">Filtrar por Categoria</option>
-            <option value="tranport">Tranporte</option>
-            <option value="alimentação">Alimentação</option>
-          </Select>
+          <SelectButton 
+            placeholde='Filtrar por Tipo'
+            listOption={["receita","despesa"]} 
+            selectData={filteredTransactionsType} 
+            setSelectData={setFilteredTransactionsType} 
+            width='100%'
+          />
+          <SelectButton 
+            placeholde='Filtrar por Categoria'
+            listOption={["alimentacao","tranporte","lazer","moradia","educacao","outros"]} 
+            selectData={filteredTransactionsCategory} 
+            setSelectData={setFilteredTransactionsCategory} 
+            width='100%'
+          />
           <ButtonFilter onClick={onSearchTransaction}>Filtrar</ButtonFilter>
           <FilterValue>{transactions.length} transações encontradas</FilterValue>
         </HeaderFilter>

@@ -1,7 +1,7 @@
 import  api  from "./config";
 export interface TransactionData {
   description: string;
-  value: number;
+  value: string;
   type: string;
   category: string;
   date: string;
@@ -10,7 +10,7 @@ export interface TransactionData {
 export interface Transaction {
   id: string;
   description: string;
-  value: number;
+  value: string;
   type: string;
   category: string;
   date: string;

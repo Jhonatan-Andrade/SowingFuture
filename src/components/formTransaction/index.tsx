@@ -3,7 +3,6 @@ import { useState } from "react";
 import { createTransaction, type TransactionData } from "../../api/transactions";
 import { BoxInput, BoxInputDouble, BoxInputSmall, ButtonClose, ButtonCreate, ButtonsForm, Container, ErrorMessage, FormWrapper, Input, Label, Select, Title } from "./style";
 
-
 function FormTransaction({setOpen, reloadTransactions, onCreateTransaction}: {
     setOpen: (open: boolean) => void
     reloadTransactions: () => void
@@ -17,11 +16,19 @@ function FormTransaction({setOpen, reloadTransactions, onCreateTransaction}: {
     const [errorPaymentMethod, setErrorPaymentMethod] = useState<boolean>(false);
 
     const [description, setDescription] = useState<string>("");
-    const [value, setValue] = useState<number>(0);
+    const [value, setValue] = useState<string>("");
     const [type, setType] = useState<string>("");
     const [category, setCategory] = useState<string>("");
     const [date, setDate] = useState<string>("");
     const [paymentMethod, setPaymentMethod] = useState<string>("");
+
+    function setMask(valor:string) {
+        var valorAlterado = valor
+        valorAlterado = valorAlterado.replace(/\D/g, ""); // Remove todos os não dígitos
+        valorAlterado = valorAlterado.replace(/(\d+)(\d{2})$/, "$1,$2"); // Adiciona a parte de centavos
+        valorAlterado = valorAlterado.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."); // Adiciona pontos a cada três dígitos
+        setValue(`R$:${valorAlterado}`)
+    }
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -34,7 +41,7 @@ function FormTransaction({setOpen, reloadTransactions, onCreateTransaction}: {
         setErrorPaymentMethod(false);
 
         if (description.trim() === "") {setErrorDescription(true);return;}
-        if (value <= 0) {setErrorValue(true);return;}
+        if (value === "" || value.split(":")[1] == "") {setErrorType(true);return}
         if (type.trim() === "") {setErrorType(true);return;}
         if (category.trim() === "") {setErrorCategory(true);return;}
         if (date.trim() === "") {setErrorDate(true);return;}
@@ -50,7 +57,7 @@ function FormTransaction({setOpen, reloadTransactions, onCreateTransaction}: {
                 paymentMethod
             });
             setDescription("");
-            setValue(0);
+            setValue("");
             setType("");
             setCategory("");
             setDate("");
@@ -77,7 +84,7 @@ function FormTransaction({setOpen, reloadTransactions, onCreateTransaction}: {
                 <BoxInputDouble>
                     <BoxInputSmall>
                         <Label>Valor</Label>
-                        <Input type="number" name="value" value={value} onChange={(e) => setValue(Number(e.target.value))} />
+                        <Input type="text" name="value" placeholder='R$:0,00' value={value} onChange={(e) => setMask(e.target.value)} />
                         <ErrorMessage style={{ color: errorValue ? 'red' : 'transparent' }}>Valor inválido</ErrorMessage>
                     </BoxInputSmall>
                     <BoxInputSmall>

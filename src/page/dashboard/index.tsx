@@ -10,10 +10,10 @@ export default function Dashboard() {
     <>
       <h1>Dashboard</h1> 
     <SelectButton 
-      data={["jhonatan","jhenifer","mae"]} 
-      type={type} 
-      setType={setType} 
-      typeError={typeError}  
+      listOption={["jhonatan","jhenifer","mae"]} 
+      selectData={type} 
+      setSelectData={setType} 
+      selectError={typeError}  
     />
     </>
         
